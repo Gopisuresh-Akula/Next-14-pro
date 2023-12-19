@@ -8,9 +8,40 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+   {
+      return (
+        <html lang="en">
+          <head>
+            {/* Header */}
+            <style>
+              {`
+                header {
+                  background-color: #f2f2f2;
+                  padding: 20px;
+                  text-align: center;
+                }
+
+                footer {
+                  background-color: #f2f2f2;
+                  padding: 20px;
+                  text-align: center;
+                }
+              `}
+            </style>
+            <title>{metadata.title}</title>
+            <meta name="description" content={metadata.description} />
+          </head>
+          <body>
+            <header>
+              <h1 style={{ color: 'blue' }}>This is the header</h1>
+            </header>
+            {children}
+            <footer>
+              <p style={{ color: 'red' }}>This is the footer</p>
+            </footer>
+          </body>
+        </html>
+      );
+    }
+  
 }
